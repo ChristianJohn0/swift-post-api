@@ -5,7 +5,6 @@ app = Flask(__name__)
 app.config["DEBUG"] = True
 easypost.api_key = "EZAK2b2b7bf3cfcb44bbaa40f92ce17cefd4weXKTMo9e7JFSyG3kj2T3g"
 
-    email = 'dr_steve_brule@gmail.com')
 @app.route("/")
 def home():
     return '''<h1>Swift Post API</h1>
