@@ -4,7 +4,7 @@ from flask import request, jsonify
 
 easypost.api_key = "EZAK2b2b7bf3cfcb44bbaa40f92ce17cefd4weXKTMo9e7JFSyG3kj2T3g"
 app = flask.Flask(__name__)
-app.config["DEBUG"] = True
+#app.config["DEBUG"] = True
 
 to_address = easypost.Address.create(
     name = 'Dr. Steve Brule',
@@ -50,7 +50,7 @@ customs_info = easypost.CustomsInfo.create(
         'origin_country': 'US'}])
 
 
-@app.route('/dev/', methods=['GET'])
+@app.route('/', methods=['GET'])
 def home():
     return
     '''<h1>Swift Post API</h1>
