@@ -1,7 +1,7 @@
 import flask
 app = flask.Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=['GET'])
 def home():
     return '''<h1>Swift Post API</h1>
     <hr>
