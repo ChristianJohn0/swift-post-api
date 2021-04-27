@@ -1,7 +1,7 @@
-from flask import Flask, request, jsonify
+import flask
 import easypost
 
-app = Flask(__name__)
+app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 easypost.api_key = "EZAK2b2b7bf3cfcb44bbaa40f92ce17cefd4weXKTMo9e7JFSyG3kj2T3g"
 
@@ -14,11 +14,11 @@ def home():
 
 @app.route('/dev/v1/resources/track_shipment', methods=['GET'])
 def retrieveTrackingData():
-    tracking_code = request.args.get('tracking_code')
-    carrier = request.args.get('carrier')
+    tracking_code = flask.request.args.get('tracking_code')
+    carrier = flask.request.args.get('carrier')
     tracking_data = easypost.Tracker.create(tracking_code = tracking_code, carrier = carrier)
     
     temp = [tracking_data.to_dict()]
-    return jsonify(temp)
+    return flask.jsonify(temp)
     
 app.run()
